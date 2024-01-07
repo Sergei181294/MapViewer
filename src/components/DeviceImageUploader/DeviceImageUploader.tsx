@@ -51,7 +51,7 @@ export const DeviceImageUploader: React.FC<DeviceImageUploaderProps> = ({ onUplo
 
        return (
               <div className={css.changeMarkerWrapper}>
-                     <h2 className={css.title}>Устройство</h2>
+                     <h2 className={css.title}>Изменить фото устройства</h2>
                      <p className={css.subtitle}>Тип устройства</p>
                      <Select
                             className={css.dropdawn}
