@@ -61,7 +61,7 @@ export const AddNewDevice: React.FC<AddNewDeviceProps> = ({ data, setData, uniqu
 
        return (
               <div className={css.addNewDeviceWrapper}>
-                     <h2 className={css.title}>Устройство</h2>
+                     <h2 className={css.title}>Добавить устройство</h2>
                      <p className={css.subtitle}>Идентификатор</p>
                      <Input
                             className={css.entryField}
