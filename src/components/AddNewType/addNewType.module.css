@@ -1,0 +1,73 @@
+.addNewTypeWrapper {
+       display: flex;
+       flex-direction: column;
+       border: 2px solid red;
+       margin-top: 20px;
+       border-radius: 5px;
+       width: 350px;
+       text-align: left;
+       gap: 5px;
+       padding: 10px;
+}
+
+.title {
+       color: red
+}
+
+.subtitle {
+       font-size: 18px;
+       font-weight: 600;
+       color: red;
+}
+
+.entryField {
+       height: 30px;
+       font-size: 16px;
+       font-weight: 400;
+       color: red;
+       border: 2px solid red;
+       outline: none;
+}
+
+.entryField:focus {
+       border-color: rgb(158, 0, 0);
+}
+
+.avatarBlock {
+       position: relative;
+       width: 80px;
+}
+
+.closeIcon {
+       position: absolute;
+       width: 10px;
+       height: 10px;
+       top: 5px;
+       right: 5px;
+       cursor: pointer;
+}
+
+.addPhoto path {
+       fill: red;
+}
+
+.addNewTypeBtn {
+       color: #ffffff;
+       padding: 10px;
+       font-size: 16px;
+       font-weight: 600;
+       background-color: red;
+       border-radius: 5px;
+       border: none;
+}
+
+.addNewTypeBtnDisabled {
+       color: #ffffff;
+       padding: 10px;
+       font-size: 16px;
+       font-weight: 600;
+       background-color: red;
+       border-radius: 5px;
+       border: none;
+       opacity: 0.5;
+}

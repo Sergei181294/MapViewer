@@ -1,0 +1,91 @@
+.addNewDeviceWrapper {
+       display: flex;
+       flex-direction: column;
+       border: 2px solid red;
+       margin-top: 20px;
+       border-radius: 5px;
+       width: 350px;
+       text-align: left;
+       gap: 5px;
+       padding: 10px;
+}
+
+.title {
+       color: red
+}
+
+.subtitle {
+       font-size: 18px;
+       font-weight: 600;
+       color: red;
+}
+
+.entryField {
+       height: 30px;
+       font-size: 16px;
+       font-weight: 400;
+       color: red;
+       border: 2px solid red;
+       outline: none;
+}
+
+.entryField:focus {
+       border-color: rgb(158, 0, 0);
+}
+
+.inputForGeo {
+       width: 162px;
+       height: 30px;
+       font-size: 16px;
+       font-weight: 400;
+       color: red;
+       border: 2px solid red;
+       outline: none;
+}
+
+.inputForGeo:focus {
+       border-color: rgb(158, 0, 0);
+}
+
+.coordinatesBlock {
+       display: flex;
+       gap: 5px;
+}
+
+.btnForNewDevice {
+       color: #ffffff;
+       padding: 10px;
+       font-size: 16px;
+       font-weight: 600;
+       background-color: red;
+       border-radius: 5px;
+       border: none;
+}
+
+.btnForNewDeviceDisabled {
+       color: #ffffff;
+       padding: 10px;
+       font-size: 16px;
+       font-weight: 600;
+       background-color: red;
+       border-radius: 5px;
+       border: none;
+       opacity: 0.5;
+}
+
+.dropdawn {
+       padding: 8px;
+       font-size: 14px;
+       border: none;
+       background-color: red;
+       color: #ffffff;
+       -webkit-appearance: none;
+       -moz-appearance: none;
+       appearance: none;
+       border-radius: 5px;
+       margin-bottom: 10px;
+}
+
+.dropdawn:focus {
+       outline: none;
+}

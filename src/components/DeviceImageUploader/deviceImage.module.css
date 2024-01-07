@@ -1,0 +1,76 @@
+.avatarBlock {
+       position: relative;
+       width: 80px;
+}
+
+.closeIcon {
+       position: absolute;
+       width: 10px;
+       height: 10px;
+       top: 5px;
+       right: 5px;
+       cursor: pointer;
+}
+
+.changeMarkerWrapper {
+       width: 350px;
+       display: flex;
+       flex-direction: column;
+       gap: 10px;
+       border: 2px solid red;
+       border-radius: 5px;
+       margin-top: 20px;
+       padding: 10px;
+}
+
+.title {
+       color: red;
+}
+
+.subtitle {
+       font-size: 18px;
+       font-weight: 600;
+       color: red;
+}
+
+.dropdawn {
+       padding: 8px;
+       font-size: 14px;
+       border: none;
+       background-color: red;
+       color: #ffffff;
+       -webkit-appearance: none;
+       -moz-appearance: none;
+       appearance: none;
+       border-radius: 5px;
+       margin-bottom: 10px;
+}
+
+.dropdawn:focus {
+       outline: none;
+}
+
+.addPhotoIcon path {
+       fill: red;
+}
+
+.changeIconBtn {
+       color: #ffffff;
+       padding: 10px;
+       font-size: 16px;
+       font-weight: 600;
+       background-color: red;
+       border-radius: 5px;
+       border: none;
+}
+
+.changeIconBtnDisabled {
+       color: #ffffff;
+       padding: 10px;
+       font-size: 16px;
+       font-weight: 600;
+       background-color: red;
+       border-radius: 5px;
+       border: none;
+       opacity: 0.5;
+}

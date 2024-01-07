@@ -1,0 +1,1 @@
+export {AddNewDevice} from './AddNewDevice';

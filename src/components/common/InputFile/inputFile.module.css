@@ -1,0 +1,30 @@
+.inputLabel {
+       display: flex;
+       align-items: center;
+       color: #ffffff;
+       width: 250px;
+       font-size: 18px;
+       font-weight: 700;
+       background: #15abc2;
+       border-radius: 5px;
+       padding: 10px;
+       gap: 30px;
+       margin: 20px;
+       cursor: pointer;
+}
+
+.inputFile {
+       display: none;
+}
+
+.inputIcon {
+       width: 40px;
+       height: 35px;
+       color: #ffffff;
+       border-right: 1px solid #ffffff;
+       padding-right: 10px;
+}
+
+.inputIcon path {
+       stroke: #ffffff;
+}

@@ -1,0 +1,1 @@
+export { UploadBtn } from './UploadBtn';

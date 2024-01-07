@@ -1,0 +1,1 @@
+export { AddNewType } from './AddNewType';
