@@ -1,7 +1,7 @@
 .uploadBtnWrapper {
        width: 210px;
        padding: 5px;
-       border:1px solid red;
+       border:1px solid black;
        border-radius: 5px;
 }
 
@@ -19,6 +19,6 @@
 .clipBtnText {
        font-size: 18px;
        font-weight: 600;
-       color: red;
+       color: black;
        padding: 5px;
 }

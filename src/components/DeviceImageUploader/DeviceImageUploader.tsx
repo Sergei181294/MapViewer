@@ -51,7 +51,7 @@ export const DeviceImageUploader: React.FC<DeviceImageUploaderProps> = ({ onUplo
 
        return (
               <div className={css.changeMarkerWrapper}>
-                     <h2 className={css.title}>Изменить фото устройства</h2>
+                     <h2 className={css.title}>Изменить маркер для типа</h2>
                      <p className={css.subtitle}>Тип устройства</p>
                      <Select
                             className={css.dropdawn}
@@ -77,7 +77,7 @@ export const DeviceImageUploader: React.FC<DeviceImageUploaderProps> = ({ onUplo
                      ) : (
                             <UploadBtn
                                    onUpload={handleFileUploaded}
-                                   accept=".svg"
+                                   accept=".jpg, .png"
                                    inputId="photo-upload-button"
                                    text='Выберите файл'
                                    icon={<AddPhoto className={css.addPhotoIcon} />}

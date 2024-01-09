@@ -2,9 +2,10 @@ import { ExcelReader } from './ExcelReader';
 import React, { useState, useEffect } from 'react';
 import { Map, Filters, DeviceImageUploader, AddNewDevice, AddNewType } from '.';
 import type { Device } from './types/types';
-import css from './app.module.css';
+import css from './mapViewer.module.css';
 import Cookies from 'js-cookie';
 
+const LOCAL_STORAGE_KEY = 'mapViewerData';
 
 export const MapViewer: React.FC = () => {
 
@@ -32,21 +33,40 @@ export const MapViewer: React.FC = () => {
     setUniqueTypes(updatedUniqueTypes);
   }, [newType]);
 
-  if ([]) {
-    console.log('hello')
-  }
-
-
-
   const handlePhotoUpload = (file: string | null) => {
     setPhoto(file);
   };
 
   const handleExcelDataChange = (formattedData: Device[]) => {
-    // Cookies.set('mapData', JSON.stringify(formattedData), { path: '/' });
     setData(formattedData);
   };
 
+  useEffect(() => {
+    const storedData = localStorage.getItem(LOCAL_STORAGE_KEY);
+    if (storedData) {
+      const parsedData = JSON.parse(storedData);
+      setData(parsedData.data || []);
+      setSelectedNames(parsedData.selectedNames || []);
+      setSelectedTypes(parsedData.selectedTypes || []);
+      setShowDevice(parsedData.showDevice || false);
+      setShowType(parsedData.showType || false);
+      setUniqueNames(parsedData.uniqueNames || []);
+      setUniqueTypes(parsedData.uniqueTypes || []);
+    }
+  }, []);
+
+  useEffect(() => {
+    const updatedData = {
+      data,
+      selectedNames,
+      selectedTypes,
+      showDevice,
+      showType,
+      uniqueNames,
+      uniqueTypes
+    };
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(updatedData));
+  }, [data, selectedNames, selectedTypes, showDevice, showType, uniqueNames, uniqueTypes]);
 
   return (
     <div className={css.appWrapper}>
@@ -93,14 +113,4 @@ export const MapViewer: React.FC = () => {
   );
 };
 
-// useEffect(() => {
-//   Cookies.set('mapData', JSON.stringify(data), { path: '/' });
-// }, [data]);
 
-// useEffect(() => {
-//   const savedData = Cookies.get('mapData');
-//   console.log(savedData);
-//   if (savedData) {
-//     setData(JSON.parse(savedData));
-//   }
-// }, []);

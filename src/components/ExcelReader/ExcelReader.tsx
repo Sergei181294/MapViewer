@@ -32,12 +32,14 @@ export const ExcelReader: React.FC<ExcelReaderProps> = ({ onChange }) => {
                                    });
                                    return obj;
                             });
-                            try {  
+                     
+                            try {
                                    const myData = JSON.stringify(formattedData);
-                                   Cookies.set('mapData', myData, { path: '/', domain: 'localhost' });
-                                 } catch (error) {
+                                   console.log(myData);
+                                   Cookies.set('mapData', myData, { path: '/' });
+                            } catch (error) {
                                    console.error('Ошибка при преобразовании массива в JSON-строку:', error);
-                                 }
+                            }
                             onChange(formattedData);
                             const truncatedFileName = file.name.length > 15 ? file.name.substring(0, 12) + '...' : file.name;
                             setSelectedFileName(truncatedFileName);
