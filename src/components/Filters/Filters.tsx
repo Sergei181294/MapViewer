@@ -16,10 +16,28 @@ interface FiltersProps {
        uniqueTypes: string[];
 }
 
-export const Filters: React.FC<FiltersProps> = ({ selectedNames, selectedTypes, data, setSelectedNames, setShowDevice, setShowType, setSelectedTypes, uniqueNames, uniqueTypes }) => {
+export const Filters: React.FC<FiltersProps> = ({ data, setSelectedNames, setShowDevice, setShowType, setSelectedTypes, uniqueNames, uniqueTypes }) => {
 
        const [selectedNameValue, setSelectedNameValue] = useState('None selected');
        const [selectedTypeValue, setSelectedTypeValue] = useState('None selected');
+
+
+       useEffect(() => {
+              const storedSelectedNameValue = localStorage.getItem('selectedNameValue');
+              if (storedSelectedNameValue) {
+                     setSelectedNameValue(storedSelectedNameValue);
+              }
+              const storedSelectedTypeValue = localStorage.getItem('selectedTypeValue');
+              if (storedSelectedTypeValue) {
+                     setSelectedTypeValue(storedSelectedTypeValue);
+              }
+       }, []);
+
+       useEffect(() => {
+              localStorage.setItem('selectedNameValue', selectedNameValue);
+              localStorage.setItem('selectedTypeValue', selectedTypeValue);
+       }, [selectedNameValue, selectedTypeValue]);
+
 
        const handleChangeName = (value: string) => {
               const selectedNameArr = data?.filter(device => device.NAME === value);
@@ -31,7 +49,7 @@ export const Filters: React.FC<FiltersProps> = ({ selectedNames, selectedTypes, 
                      setShowType(false);
                      setShowDevice(true);
               }
-              if(value === 'None selected') {
+              if (value === 'None selected') {
                      setShowDevice(false);
               }
        };
@@ -46,7 +64,7 @@ export const Filters: React.FC<FiltersProps> = ({ selectedNames, selectedTypes, 
                      setShowType(true);
                      setShowDevice(false);
               }
-              if(value === 'None selected') {
+              if (value === 'None selected') {
                      setShowType(false);
               }
        }

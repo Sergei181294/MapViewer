@@ -1,6 +1,6 @@
 .filtersWrapper {
        width: 350px;
-       border: 2px solid red;
+       border: 2px solid black;
        border-radius: 5px;
        margin-top: 10px;
        padding: 10px;
@@ -9,7 +9,7 @@
 .title {
        font-size: 18px;
        font-weight: 600;
-       color: red;
+       color: black;
        margin-bottom: 5px;
 }
 
@@ -17,7 +17,7 @@
        padding: 8px;
        font-size: 14px;
        border: none;
-       background-color: red;
+       background-color: black;
        color: #ffffff;
        -webkit-appearance: none;
        -moz-appearance: none;

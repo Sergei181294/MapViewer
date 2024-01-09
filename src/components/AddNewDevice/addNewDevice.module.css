@@ -1,7 +1,7 @@
 .addNewDeviceWrapper {
        display: flex;
        flex-direction: column;
-       border: 2px solid red;
+       border: 2px solid black;
        margin-top: 20px;
        border-radius: 5px;
        width: 350px;
@@ -11,21 +11,21 @@
 }
 
 .title {
-       color: red
+       color: black
 }
 
 .subtitle {
        font-size: 18px;
        font-weight: 600;
-       color: red;
+       color: black;
 }
 
 .entryField {
        height: 30px;
        font-size: 16px;
        font-weight: 400;
-       color: red;
-       border: 2px solid red;
+       color: black;
+       border: 2px solid black;
        outline: none;
 }
 
@@ -38,8 +38,8 @@
        height: 30px;
        font-size: 16px;
        font-weight: 400;
-       color: red;
-       border: 2px solid red;
+       color: black;
+       border: 2px solid black;
        outline: none;
 }
 
@@ -57,7 +57,7 @@
        padding: 10px;
        font-size: 16px;
        font-weight: 600;
-       background-color: red;
+       background-color: black;
        border-radius: 5px;
        border: none;
 }
@@ -67,7 +67,7 @@
        padding: 10px;
        font-size: 16px;
        font-weight: 600;
-       background-color: red;
+       background-color: black;
        border-radius: 5px;
        border: none;
        opacity: 0.5;
@@ -77,7 +77,7 @@
        padding: 8px;
        font-size: 14px;
        border: none;
-       background-color: red;
+       background-color: black;
        color: #ffffff;
        -webkit-appearance: none;
        -moz-appearance: none;

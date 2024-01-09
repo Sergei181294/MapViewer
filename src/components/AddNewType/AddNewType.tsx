@@ -48,7 +48,7 @@ export const AddNewType: React.FC<AddNewTypeProps> = ({ onUpload, setNewType }) 
 
        return (
               <div className={css.addNewTypeWrapper}>
-                     <h2 className={css.title}>Тип устройства</h2>
+                     <h2 className={css.title}>Добавить тип устройства</h2>
                      <p className={css.subtitle}>Наименование</p>
                      <Input
                             className={css.entryField}
@@ -74,7 +74,7 @@ export const AddNewType: React.FC<AddNewTypeProps> = ({ onUpload, setNewType }) 
                      ) : (
                             <UploadBtn
                                    onUpload={handleFileUploaded}
-                                   accept=".svg"
+                                   accept=".jpg, .png"
                                    inputId="photo-for-newType"
                                    text='Выберите файл'
                                    icon={<AddPhoto className={css.addPhoto} />}

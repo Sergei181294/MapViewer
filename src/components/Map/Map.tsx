@@ -4,7 +4,8 @@ import L, { LatLngExpression } from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import { Device } from '../../components/types/types';
 import css from './map.module.css';
-import markerForDis from '../../assets/markerForDis.svg';
+import marker from '../../assets/markerTest.png';
+
 
 interface MapProps {
        data: Device[] | null;
@@ -16,65 +17,45 @@ interface MapProps {
 
 export const Map: React.FC<MapProps> = ({ data, photo, typeForChangingPhoto, newType, photoForNewType }) => {
 
-       const convertSvgToBase64 = (svgCode: string) => {
-              const svgBase64 = btoa(decodeURIComponent(encodeURIComponent(svgCode)));
-              return `data:image/svg+xml;base64,${svgBase64}`;
-       };
+       const customIconForDis = L.icon({
+              iconUrl: marker,
+              iconSize: [36, 36],
+              iconAnchor: [18, 30],
+              popupAnchor: [0, -32]
+       });
 
-       const SVGIconForDis = L.Icon.extend({
-              options: {
-                     iconUrl: markerForDis,
-                     iconSize: [36, 36],
-                     iconAnchor: [18, 30],
-                     popupAnchor: [0, -32]
-              }
-       })
-       const customIconForDis = new SVGIconForDis();
        const [deviceIcons, setDeviceIcons] = useState<{ [key: string]: L.Icon }>({
               'Дорожно измерительные станции': customIconForDis,
               'Видеокамера': customIconForDis,
               'Табло переменной информации': customIconForDis,
               'Датчики мостовых сооружений': customIconForDis,
               'Светофоры': customIconForDis
-       });
-
-       const decodePhoto = (file: string | null) => {
-              if (file) {
-                     const [, encodedData] = file.split(",");
-                     return atob(encodedData);
-              }
-              return null;
-       };
+       });   
 
        useEffect(() => {
               const newDeviceIcons: { [key: string]: L.Icon } = { ...deviceIcons };
               data?.forEach((device) => {
                      if (device.TYPE === typeForChangingPhoto) {
-                            const Updatedphoto = decodePhoto(photo);
-                            if (Updatedphoto) {
+                            const updatedPhoto = photo;
+                            if (updatedPhoto) {
                                    const customIcon = L.icon(customIconForDis.options);
-                                   customIcon.options.iconUrl = convertSvgToBase64(Updatedphoto);
+                                   customIcon.options.iconUrl = updatedPhoto;
                                    newDeviceIcons[device.TYPE] = customIcon;
                             }
                      }
               });
-
-
               setDeviceIcons(newDeviceIcons);
        }, [photo, typeForChangingPhoto]);
 
        useEffect(() => {
               const newDeviceIcons: { [key: string]: L.Icon } = { ...deviceIcons };
-                     if (newType && photoForNewType) {
-                            const customIcon = new SVGIconForDis();
-                            const decodedPhoto = decodePhoto(photoForNewType)
-                            if (decodedPhoto) {
-                                   customIcon.options.iconUrl = convertSvgToBase64(decodedPhoto);
-                                   newDeviceIcons[newType] = customIcon;
-                            }
-                     }
-                     setDeviceIcons(newDeviceIcons);
-       }, [newType, photoForNewType])
+              if (newType && photoForNewType) {
+                     const customIcon = L.icon(customIconForDis.options);
+                     customIcon.options.iconUrl = photoForNewType;
+                     newDeviceIcons[newType] = customIcon;
+              }
+              setDeviceIcons(newDeviceIcons);
+       }, [newType, photoForNewType]);
 
        const formattedGeoHandler = (geo: string): LatLngExpression => {
               try {
@@ -96,9 +77,10 @@ export const Map: React.FC<MapProps> = ({ data, photo, typeForChangingPhoto, new
                             attributionControl={false}
                      >
                             <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-                            {data && data.map((device) => (
-                                   <div key={device.ID} >
+                            {data &&
+                                   data.map((device) => (
                                           <Marker
+                                                 key={device.ID}
                                                  position={formattedGeoHandler(device.GEO)}
                                                  icon={deviceIcons[device.TYPE]}
                                           >
@@ -107,8 +89,7 @@ export const Map: React.FC<MapProps> = ({ data, photo, typeForChangingPhoto, new
                                                         <p>id: {device.ID}</p>
                                                  </Popup>
                                           </Marker>
-                                   </div>
-                            ))}
+                                   ))}
                      </MapContainer>
               </div>
        );
